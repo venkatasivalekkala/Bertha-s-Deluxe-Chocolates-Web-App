@@ -6,29 +6,6 @@ $(document).ready( function() {
     cart = new shopping_cart("jadrn024");
     $.get('/perl/jadrn024/proj4/get_products.cgi', storeData);     
 
-	$(document).on('click','#same_address',function(){
-	if(document.getElementById('same_address').checked)
-	{
-		document.getElementById('sname').value= document.getElementById('name').value
-		document.getElementById('saddress').value=document.getElementById('address').value
-		document.getElementById('scity').value=document.getElementById('city').value
-		document.getElementById('sstate').value=document.getElementById('state').value
-		document.getElementById('szip').value=document.getElementById('zip').value
-		document.getElementById('sphone').value=document.getElementById('phone').value     
-	} 
-	else{
-		document.getElementById('sname').value="";
-		document.getElementById('saddress').value="";
-		document.getElementById('scity').value="";
-		document.getElementById('sstate').value="";
-		document.getElementById('szip').value="";
-		document.getElementById('sphone').value="";
-	}
-	});
-	
-	 $(document).on('click',"#submit", function() {
-			alert("asdfghjkloiuyh");
-        });
 
 	$(document).on('click',"#about_us", function() {
 		aboutus();
@@ -65,7 +42,7 @@ $(document).ready( function() {
 		
 	    
     $( "#dialog-modal" ).dialog({
-            height: 650,
+            height: 750,
             width: 900,
             modal: true,
             autoOpen: false
@@ -144,7 +121,7 @@ $(document).ready( function() {
 	function aboutus(){
 		
 		aboutusdata = "<div id='aboutus1' ><div id='aboutus2' >"+"<h1 color='#384835'>About Us</h1><p>Bertha’s Deluxe Chocolates was established in 1873 by Bertha Sweet in the city of San Diego. It has grown from a local family owned chocolate shop to America’s choice for premium chocolates. Sweet is family long tradition of superb quality of chocolate and satisfaction continues in all our shops. Bertha Deluxe Chocolates are compose of natural rare ingredients and are hand-made by our skilled members. As your provider in premium chocolate, we continue our mission of producing only the best for our customers.</p>";
-		aboutusdata += "<img src='about1.jpg' />"+"<img src='about2.jpeg' />"+"<img src='about3.jpg' />"+"<img src='about4.jpg' />"+"</div></div>";		
+		aboutusdata += "<img src='http://jadran.sdsu.edu/~jadrn024/proj4/about1.jpg' />"+"<img src='http://jadran.sdsu.edu/~jadrn024/proj4/about2.jpeg' />"+"<img src='http://jadran.sdsu.edu/~jadrn024/proj4/about3.jpg' />"+"<img src='http://jadran.sdsu.edu/~jadrn024/proj4/about4.jpg' />"+"</div></div>";		
 		var aboutus = document.getElementById('displaycart');
         aboutus.innerHTML = aboutusdata;
 		
@@ -153,24 +130,11 @@ $(document).ready( function() {
 		
 		contactusdata = "<div id='aboutus1' ><div id='aboutus2' >"+"<h1 color='#384835'>Contact Us</h1><p>If you have any question, please contact us at:<br/>Phone number : (408) - 888 - 6723<br/>Fax number : (800) - 123 - 8888 <br/>Email Address : chocolate@berthas.com <br/>";
 		contactusdata += "Mailing Address: 123 Main Street,house number:1432 ,San diego,Californina. <br/></p> ";
-		contactusdata += "<img src='about1.jpg' />"+"<img src='about2.jpeg' />"+"<img src='about3.jpg' />"+"<img src='about4.jpg' />"+"</div></div>";		
+		contactusdata += "<img src='http://jadran.sdsu.edu/~jadrn024/proj4/about1.jpg' />"+"<img src='http://jadran.sdsu.edu/~jadrn024/proj4/about2.jpeg' />"+"<img src='http://jadran.sdsu.edu/~jadrn024/proj4/about3.jpg' />"+"<img src='http://jadran.sdsu.edu/~jadrn024/proj4/about4.jpg' />"+"</div></div>";		
 		var contactus1 = document.getElementById('displaycart');
         contactus1.innerHTML = contactusdata;
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

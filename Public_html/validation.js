@@ -17,29 +17,79 @@ var errorStatusHandle = $('#message_line');
     elementHandle[13] = $('[name="ctype"]');
     elementHandle[14] = $('[name="month"]');
     elementHandle[15] = $('[name="year"]');
+	
+		$('#same_address').on('click',function(){
+	if(document.getElementById('same_address').checked)
+	{
+		document.getElementById('billing_name').value= document.getElementById('name').value
+		document.getElementById('billing_address').value=document.getElementById('address').value
+		document.getElementById('billing_city').value=document.getElementById('city').value
+		document.getElementById('billing_state').value=document.getElementById('state').value
+		document.getElementById('billing_zip').value=document.getElementById('zip').value
+		document.getElementById('billing_phone').value=document.getElementById('phone').value     
+	} 
+	else{
+		document.getElementById('billing_name').value="";
+		document.getElementById('billing_address').value="";
+		document.getElementById('billing_city').value="";
+		document.getElementById('billing_state').value="";
+		document.getElementById('billing_zip').value="";
+		document.getElementById('billing_phone').value="";
+	}
+	});
+	
+	  function isEmpty(fieldValue) {
+        return $.trim(fieldValue).length == 0;    
+        }
+    
+    function isValidState(state) {                                
+        var stateList = new Array("AK","AL","AR","AZ","CA","CO","CT","DC",
+        "DE","FL","GA","GU","HI","IA","ID","IL","IN","KS","KY","LA","MA",
+        "MD","ME","MH","MI","MN","MO","MS","MT","NC","ND","NE","NH","NJ",
+        "NM","NV","NY","OH","OK","OR","PA","PR","RI","SC","SD","TN","TX",
+        "UT","VA","VT","WA","WI","WV","WY");
+        for(var i=0; i < stateList.length; i++) 
+            if(stateList[i] == $.trim(state))
+                return true;
+        return false;
+        }
+		
+		$(':submit').on('click', function() {
+        for(var i=0; i < 16; i++)
+            elementHandle[i].removeClass("error");
+            errorStatusHandle.text("");   
+            return isValidData();
+        });
+        
+    $(':reset').on('click', function() {
+        for(var i=0; i < 16; i++)
+            elementHandle[i].removeClass("error");
+            errorStatusHandle.text("");
+        });
+		
     
     function isValidData() {
         if(isEmpty(elementHandle[0].val())) {
             elementHandle[0].addClass("error");
-            errorStatusHandle.text("Please enter your name");
+            errorStatusHandle.text("Please enter your name for Shipping");
             elementHandle[0].focus();
             return false;
             }
         if(isEmpty(elementHandle[1].val())) {
             elementHandle[1].addClass("error");
-            errorStatusHandle.text("Please enter your address");
+            errorStatusHandle.text("Please enter your Shipping address");
             elementHandle[1].focus();
             return false;
             }
         if(isEmpty(elementHandle[2].val())) {
             elementHandle[2].addClass("error");
-            errorStatusHandle.text("Please enter your city");
+            errorStatusHandle.text("Please enter your Shipping city");
             elementHandle[2].focus();
             return false;
             }
          if(isEmpty(elementHandle[3].val())) {
             elementHandle[3].addClass("error");
-            errorStatusHandle.text("Please enter your state");
+            errorStatusHandle.text("Please enter your state for shipping");
             elementHandle[3].focus();
             return false;
             }
@@ -52,7 +102,7 @@ var errorStatusHandle = $('#message_line');
             }
         if(isEmpty(elementHandle[4].val())) {
             elementHandle[4].addClass("error");
-            errorStatusHandle.text("Please enter your zip");
+            errorStatusHandle.text("Please enter your zip for shipping");
             elementHandle[4].focus();
             return false;
             }
@@ -65,7 +115,7 @@ var errorStatusHandle = $('#message_line');
             }
         if(elementHandle[4].val().length != 5) {
             elementHandle[4].addClass("error");
-            errorStatusHandle.text("The zip code must have exactly five digits")
+            errorStatusHandle.text("The zip code must have exactly five digits  ")
             elementHandle[4].focus();            
             return false;
             }
@@ -90,25 +140,25 @@ var errorStatusHandle = $('#message_line');
             }
         if(isEmpty(elementHandle[6].val())) {
             elementHandle[6].addClass("error");
-            errorStatusHandle.text("Please enter your name for billing");
+            errorStatusHandle.text("Please enter your name for Billing");
             elementHandle[6].focus();
             return false;
             }
         if(isEmpty(elementHandle[7].val())) {
             elementHandle[7].addClass("error");
-            errorStatusHandle.text("Please enter your address for billing");
+            errorStatusHandle.text("Please enter your address for Billing");
             elementHandle[7].focus();
             return false;
             }
         if(isEmpty(elementHandle[8].val())) {
             elementHandle[8].addClass("error");
-            errorStatusHandle.text("Please enter your city for billing");
+            errorStatusHandle.text("Please enter your city for Billing");
             elementHandle[8].focus();
             return false;
             }
          if(isEmpty(elementHandle[9].val())) {
             elementHandle[9].addClass("error");
-            errorStatusHandle.text("Please enter your state for billing");
+            errorStatusHandle.text("Please enter your state for Billing");
             elementHandle[9].focus();
             return false;
             }
@@ -250,41 +300,5 @@ var errorStatusHandle = $('#message_line');
         elementHandle[9].val(elementHandle[9].val().toUpperCase());
         });
 
-        $(':submit').on('click', function() {
-        for(var i=0; i < 16; i++)
-            elementHandle[i].removeClass("error");
-            errorStatusHandle.text("");
-             if(document.getElementById('same_address').checked){
-            document.getElementById('billing_name').value= document.getElementById('name').value
-            document.getElementById('billing_address').value=document.getElementById('address').value
-            document.getElementById('billing_city').value=document.getElementById('city').value
-            document.getElementById('billing_state').value=document.getElementById('state').value
-            document.getElementById('billing_zip').value=document.getElementById('zip').value
-            document.getElementById('billing_phone').value=document.getElementById('phone').value     
-        }   
-            return isValidData();
-        });
         
-    $(':reset').on('click', function() {
-        for(var i=0; i < 16; i++)
-            elementHandle[i].removeClass("error");
-            errorStatusHandle.text("");
-        });
-		
 });
-
-  function isEmpty(fieldValue) {
-        return $.trim(fieldValue).length == 0;    
-        }
-    
-    function isValidState(state) {                                
-        var stateList = new Array("AK","AL","AR","AZ","CA","CO","CT","DC",
-        "DE","FL","GA","GU","HI","IA","ID","IL","IN","KS","KY","LA","MA",
-        "MD","ME","MH","MI","MN","MO","MS","MT","NC","ND","NE","NH","NJ",
-        "NM","NV","NY","OH","OK","OR","PA","PR","RI","SC","SD","TN","TX",
-        "UT","VA","VT","WA","WI","WV","WY");
-        for(var i=0; i < stateList.length; i++) 
-            if(stateList[i] == $.trim(state))
-                return true;
-        return false;
-        }

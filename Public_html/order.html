@@ -53,7 +53,7 @@
 			  <!-- The order form is not visible until the Order Now button is clicked -->
 			 <div class="ui-widget">
                     <div id="dialog-modal" class="widget-dialog-container" title="Complete Your Order">
-                        <form method="post" action="/perl/jadrn024/proj4/read_cookie.cgi"> 
+                        <form method="post" action="/perl/jadrn024/proj4/db_insert_example.cgi"> 
                             <fieldset> 
                             <legend>Shipping Address</legend>
                             <table>
@@ -81,14 +81,11 @@
                                     <td>Phone:</td>
                                     <td><input type="text" name="phone" id="phone" size="10" /></td> 
                                 </tr>
-                                <tr>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                </tr>
+                                
                                 </table>
                                 </fieldset>
                             <input type="checkbox" name="same_address" id="same_address" value="same address" />Same as Shipping Address   
-                            <div id="bill">
+                            <div id="billing">
                             <fieldset> 
                             <legend>Billing Address</legend>
                             <table>
@@ -116,10 +113,7 @@
                                     <td>Phone:</td>
                                     <td><input type="text" name="billing_phone" id="billing_phone" size="10" /></td>
                                 </tr>
-                                <tr>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                </tr>
+                               
                                 </table>
                                 </fieldset>
                                 </div>
@@ -147,7 +141,7 @@
                                 </tr>
                                 </table>
                                 </fieldset>
-                                <div id="message_line">&nbsp;</div>
+                                <div id="message_line" >&nbsp;</div>
                                     <input type="reset" />
                                     <input type="submit" class="ui-button" value="Submit Order"/> 
                         </form>       
