@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<meta http-equiv="content-type" 
+		content="text/html;charset=utf-8" />
+	<title>Bertha's Deluxe Chocolates</title>
+	<link rel="stylesheet" href="main.css">    
+	 <link rel="stylesheet" type="text/css" href="jquery-ui-1.10.4.custom/css/start/jquery-ui-1.10.4.custom.min.css" />
+    <script type="text/javascript" src="http://jadran.sdsu.edu/jquery/jquery.js"></script>
+    <script type="text/javascript" src="ajax_get_lib.js"></script>
+     <script type="text/javascript" src="shopping_cart.js"></script>
+	 <script type="text/javascript" src="ordernow.js"></script>
+	 <script type="text/javascript" src="validation.js"></script>
+	 <script type="text/javascript" src="jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js"></script>
+</head>
+<body>		
+
+
+			<div id="left_column">
+			<div id="left_top"></div>
+					<ul id="main_menu">
+						<li id="home" class="main_menu"> <a href="index.html" > Home </a> </li> 
+						<li id="Products" class="main_menu"> <a href="index.html" > Products </a> 
+							
+							</li>
+						<li id="order_now" class="main_menu"> <a href="order.html" > Order Now </a> </li> 
+						<li id="about_us" class="main_menu"> <a href="#" > About Us </a> </li> 
+						<li id="contact_us" class="main_menu"> <a href="#" > Contact Us </a> </li> 
+					</ul>
+			</div>	
+			
+			
+		<div id="right">		
+				
+			<div id="counter">
+				<a href="order.html"><img id="cart" src="cart.jpg" /><span id="count1">Your Cart </br> Items:<span id="count">0</span></span></a>
+			</div>
+			<div id="title">
+			<h1>Bertha's Deluxe Chocolates</h1>
+			</div>
+			
+			<div id="container">
+			   <div id="displaycart"></div>
+					<input type="button" onClick="parent.location='index.html'" value="Continue Shopping" id="continue"/>
+					<input type="button" value="Place Your Order" id="order_button" />
+					
+				</div>
+			
+			
+
+			  <!-- The order form is not visible until the Order Now button is clicked -->
+			 <div class="ui-widget">
+                    <div id="dialog-modal" class="widget-dialog-container" title="Complete Your Order">
+                        <form method="post" action="/perl/jadrn024/proj4/read_cookie.cgi"> 
+                            <fieldset> 
+                            <legend>Shipping Address</legend>
+                            <table>
+                                <tr>
+                                    <td>Name:</td>
+                                    <td><input type="text" name="name" id="name" size="20" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Address:</td>
+                                    <td><input type="text" name="address" id="address" size="20" /></td>
+                                </tr>
+                                <tr>
+                                    <td>City:</td>
+                                    <td><input type="text" name="city" id="city" size="20" /></td>
+                                </tr>
+                                <tr>
+                                    <td>State:</td>
+                                    <td><input type="text" name="state" id="state" size="2" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Zip:</td>
+                                    <td><input type="text" name="zip" id="zip" size="5" /></td>            
+                                </tr>
+                                <tr>
+                                    <td>Phone:</td>
+                                    <td><input type="text" name="phone" id="phone" size="10" /></td> 
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                </table>
+                                </fieldset>
+                            <input type="checkbox" name="same_address" id="same_address" value="same address" />Same as Shipping Address   
+                            <div id="bill">
+                            <fieldset> 
+                            <legend>Billing Address</legend>
+                            <table>
+                                <tr>
+                                    <td>Name:</td>
+                                    <td><input type="text" name="billing_name" id="billing_name" size="20" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Address:</td>
+                                    <td><input type="text" name="billing_address" id="billing_address" size="20" /></td>
+                                </tr>
+                                <tr>
+                                    <td>City:</td>
+                                    <td><input type="text" name="billing_city" id="billing_city" size="20" /></td>
+                                </tr>
+                                <tr>
+                                    <td>State:</td>
+                                    <td><input type="text" name="billing_state" id="billing_state" size="2" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Zip:</td>
+                                    <td><input type="text" name="billing_zip" id="billing_zip" size="5" /></td>            
+                                </tr> 
+                                <tr>
+                                    <td>Phone:</td>
+                                    <td><input type="text" name="billing_phone" id="billing_phone" size="10" /></td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                </table>
+                                </fieldset>
+                                </div>
+                                <fieldset>
+                                <legend>Payment Details</legend>
+                                <table>
+                                <tr>
+                                    <td>Card Number:</td>
+                                    <td><input type="text" name="cnumber" placeholder="xxxxxxxxxxxxxxxx" id="cnumber" size="16" maxlength="16" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Card Type:</td>
+                                    <td>
+                                    <input type="radio" name="ctype" value="master" />Master &nbsp;
+                                    <input type="radio" name="ctype" value="visa" />Visa &nbsp;
+                                    <input type="radio" name="ctype" value="discover" />Discover &nbsp; &nbsp;
+                                    <input type="radio" name="ctype" value="american" />American Express &nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Card Expiration</td>
+                                    <td><input type="text" name="month" placeholder="mm" id="month" size="2" maxlength="2" />/
+                                        <input type="text" name="year" placeholder="yyyy" id="year" size="4" maxlength="4" />
+                                    </td>
+                                </tr>
+                                </table>
+                                </fieldset>
+                                <div id="message_line">&nbsp;</div>
+                                    <input type="reset" />
+                                    <input type="submit" class="ui-button" value="Submit Order"/> 
+                        </form>       
+                    </div>
+                </div>
+       </div>
+</body>
+</html>    
